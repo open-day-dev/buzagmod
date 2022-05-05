@@ -2,6 +2,13 @@ Buzagmod is a mod manager for **[Open Day](https://store.steampowered.com/app/10
 
 The binaries for the tool are distributed with the game.
 
+Setting up your environment:
+- Visual Studio (My version is 2022) with .NET 4.8
+- Open the SLN file in Visual Studio.
+- Install Newtonsoft.Json nuget (Project -> Manage Nugets).
+
+---------------------------------------
+
 The manager has a GUI. 
 Mods can be added by dragging a valid mod archive to the GUI window:
 
