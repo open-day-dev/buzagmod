@@ -1,4 +1,6 @@
-Buzagmod is a mod manager for **[Open Day](https://store.steampowered.com/app/1029650/)**. The binaries for the tool are distributed with the game.
+Buzagmod is a mod manager for **[Open Day](https://store.steampowered.com/app/1029650/)**. 
+The binaries for the tool are distributed with the game.
+
 
 Setting up your environment:
 - Visual Studio (My version is 2022) with .NET 4.8
