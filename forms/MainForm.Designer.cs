@@ -30,6 +30,7 @@
         {
             this.labelVersion = new System.Windows.Forms.Label();
             this.modsListContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_fileDialog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelVersion
@@ -53,11 +54,27 @@
             this.modsListContainer.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel1_DragDrop);
             this.modsListContainer.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel1_DragEnter);
             // 
+            // btn_fileDialog
+            // 
+            this.btn_fileDialog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_fileDialog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_fileDialog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_fileDialog.Location = new System.Drawing.Point(604, 506);
+            this.btn_fileDialog.Name = "btn_fileDialog";
+            this.btn_fileDialog.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_fileDialog.Size = new System.Drawing.Size(96, 25);
+            this.btn_fileDialog.TabIndex = 0;
+            this.btn_fileDialog.Text = "חפש בקבצים";
+            this.btn_fileDialog.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btn_fileDialog.UseVisualStyleBackColor = true;
+            this.btn_fileDialog.Click += new System.EventHandler(this.fileDialog_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 535);
+            this.Controls.Add(this.btn_fileDialog);
             this.Controls.Add(this.modsListContainer);
             this.Controls.Add(this.labelVersion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -76,6 +93,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel modsListContainer;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Button btn_fileDialog;
     }
 }
 
