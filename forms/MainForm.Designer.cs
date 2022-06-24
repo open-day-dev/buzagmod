@@ -31,7 +31,6 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.modsListContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_fileDialog = new System.Windows.Forms.Button();
-            this.btn_addMoreMods = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelVersion
@@ -60,32 +59,21 @@
             this.btn_fileDialog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_fileDialog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_fileDialog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_fileDialog.Location = new System.Drawing.Point(604, 506);
+            this.btn_fileDialog.Location = new System.Drawing.Point(593, 506);
             this.btn_fileDialog.Name = "btn_fileDialog";
             this.btn_fileDialog.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_fileDialog.Size = new System.Drawing.Size(96, 25);
+            this.btn_fileDialog.Size = new System.Drawing.Size(107, 25);
             this.btn_fileDialog.TabIndex = 0;
-            this.btn_fileDialog.Text = "חפש בקבצים";
+            this.btn_fileDialog.Text = "טען קובץ מוד...";
             this.btn_fileDialog.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btn_fileDialog.UseVisualStyleBackColor = true;
             this.btn_fileDialog.Click += new System.EventHandler(this.fileDialog_Click);
-            // 
-            // btn_addMoreMods
-            // 
-            this.btn_addMoreMods.Location = new System.Drawing.Point(302, 504);
-            this.btn_addMoreMods.Name = "btn_addMoreMods";
-            this.btn_addMoreMods.Size = new System.Drawing.Size(120, 28);
-            this.btn_addMoreMods.TabIndex = 2;
-            this.btn_addMoreMods.Text = "הוסף מודים נוספים";
-            this.btn_addMoreMods.UseVisualStyleBackColor = true;
-            this.btn_addMoreMods.Click += new System.EventHandler(this.btn_addMoreMods_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 535);
-            this.Controls.Add(this.btn_addMoreMods);
             this.Controls.Add(this.btn_fileDialog);
             this.Controls.Add(this.modsListContainer);
             this.Controls.Add(this.labelVersion);
@@ -106,7 +94,6 @@
         private System.Windows.Forms.FlowLayoutPanel modsListContainer;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Button btn_fileDialog;
-        private System.Windows.Forms.Button btn_addMoreMods;
     }
 }
 

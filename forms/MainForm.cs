@@ -9,12 +9,10 @@ namespace Buzagmod
     public partial class MainForm : Form
     {
         ModManager modManager = new ModManager();
-        bool addingMoreMods;
 
         public MainForm()
         {
             InitializeComponent();
-            addingMoreMods = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,14 +41,10 @@ namespace Buzagmod
             if (this.modManager.GetMods().Count == 0)
             {
                 modsListContainer.BackgroundImage = Properties.Resources.drag;
-                btn_fileDialog.Visible = true;
-                btn_addMoreMods.Visible = false;
             }
             else
             {
                 modsListContainer.BackgroundImage = null;
-                btn_fileDialog.Visible = false;
-                btn_addMoreMods.Visible = true; //Include the option to add more mods while other mods are already installed
             }
 
             //Draw the current mods.
@@ -104,42 +98,6 @@ namespace Buzagmod
                     MessageBox.Show("אופס, נראה שהייתה בעייה בקליטת הקובץ. נסה שוב!", "שגיאה");
                 }
             }
-        }
-
-
-        private void btn_addMoreMods_Click(object sender, EventArgs e)
-        {
-            if(addingMoreMods == false)
-            {
-                modsListContainer.Controls.Clear();
-                modsListContainer.BackgroundImage = Properties.Resources.drag;
-                btn_fileDialog.Visible = true;
-
-                addingMoreMods = true;
-
-                btn_addMoreMods.Text = "חזור";
-                return;
-            }
-
-            //if true
-            modsListContainer.BackgroundImage = null;
-            btn_fileDialog.Visible = false;
-            btn_addMoreMods.Visible = true; //Include the option to add more mods while other mods are already installed
-
-            addingMoreMods = false;
-            btn_addMoreMods.Text = "הוסף מודים נוספים";
-
-            foreach (KeyValuePair<Guid, Mod> modEntry in this.modManager.GetMods())
-            {
-                bool filesPresent = this.modManager.IsModFilesPresent(modEntry.Key);
-                ModItemDisplay modItemDisplay = new ModItemDisplay();
-                modItemDisplay.FilesPresent = filesPresent;
-                modItemDisplay.ModManager = this.modManager;
-                modItemDisplay.Id = modEntry.Key;
-                modItemDisplay.Mod = modEntry.Value;
-                modsListContainer.Controls.Add(modItemDisplay);
-            }
-            return;
         }
     }
 }
