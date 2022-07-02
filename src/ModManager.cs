@@ -14,13 +14,19 @@ namespace Buzagmod
     internal class ModManager
     {
         public event EventHandler ModListModified;
+        private string modManagerPath = Directory.GetCurrentDirectory();
+        private Dictionary<Guid, Mod> mods;
+        private Dictionary<string, Guid> occupiedFiles;
         private readonly string dataPath = "data/data.mods";
         private readonly string modArchiveMetadataPath = "mod.txt";
         private readonly string modArchiveIconPath = "icon.jpg";
         private readonly string modArchiveContentPath = "content/";
-        private string modManagerPath = Directory.GetCurrentDirectory();
-        private Dictionary<Guid, Mod> mods;
-        private Dictionary<string, Guid> occupiedFiles;
+        private readonly List<ValidPairing> contentLocationMapping = new List<ValidPairing>()
+            {
+                new ValidPairing{Location = "img", Extension = ".png"},
+                new ValidPairing{Location = "audio", Extension = ".ogg"},
+                new ValidPairing{Location = "strings", Extension = ".json"}
+            };
 
         public ModManager()
         {
@@ -244,9 +250,12 @@ namespace Buzagmod
 
         private bool IsSupportedContentPath(string filename)
         {
-            return 
-                filename.StartsWith(this.modArchiveContentPath + "audio") && filename.EndsWith(".ogg") ||
-                filename.StartsWith(this.modArchiveContentPath + "img") && filename.EndsWith(".png");
+            bool result = false;
+            foreach (ValidPairing valid in this.contentLocationMapping)
+            {
+                result |= filename.StartsWith(this.modArchiveContentPath + valid.Location) && filename.EndsWith(valid.Extension);
+            }
+            return result;
         }
 
         private List<string> BuildArchiveModFileList(ZipArchive archive)
