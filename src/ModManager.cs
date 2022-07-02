@@ -250,12 +250,14 @@ namespace Buzagmod
 
         private bool IsSupportedContentPath(string filename)
         {
-            bool result = false;
             foreach (ValidPairing valid in this.contentLocationMapping)
             {
-                result |= filename.StartsWith(this.modArchiveContentPath + valid.Location) && filename.EndsWith(valid.Extension);
+                if (filename.StartsWith(this.modArchiveContentPath + valid.Location) && filename.EndsWith(valid.Extension))
+                {
+                    return true;
+                }
             }
-            return result;
+            return false;
         }
 
         private List<string> BuildArchiveModFileList(ZipArchive archive)
