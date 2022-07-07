@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Buzagmod
 {
@@ -71,6 +72,32 @@ namespace Buzagmod
         private void flowLayoutPanel1_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
+        }
+
+        private void fileDialog_Click(object sender, EventArgs e)
+        {
+            string path = "";
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "ZIP Files (*.zip)|*.zip";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    path = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    modManager.AddMod(path);
+                    btn_fileDialog.Visible = false; //Hides the button after the mod has been loaded
+                }
+                else
+                {
+                    MessageBox.Show("אופס, נראה שהייתה בעייה בקליטת הקובץ. נסה שוב!", "שגיאה");
+                }
+            }
         }
     }
 }
